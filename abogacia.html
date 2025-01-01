@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Home Page</title>
+    <style>
+        /* Reset body styles */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        /* Container for the image */
+        .image-container {
+            position: relative;
+            width: 100vw; /* Full width of the viewport */
+            height: 100vh; /* Full height of the viewport */
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the whole screen */
+            display: block;
+        }
+
+        /* Style for clickable areas */
+        .clickable-box {
+            position: absolute;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .clickable-box:hover {
+            border-color: #007bff; /* Highlight border color on hover */
+            background-color: rgba(0, 123, 255, 0.2); /* Semi-transparent background on hover */
+        }
+
+        /* Adjust the positions and sizes of the boxes based on the image dimensions */
+        .box1 { 
+            top: 53%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Offset by half width/height */
+            width: 30%; /* Reduced width to make it more square */
+            height: 30%; /* Increased height to match width */
+        }
+        /* Home button styling */
+        .home-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        padding: 10px;
+        transition: transform 0.2s ease;
+    }
+
+    .home-button:hover {
+        transform: scale(1.1);
+    }
+
+    .home-button img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <!-- Display the full PNG image -->
+        <img src="/Users/diegozuniga/Library/Mobile Documents/com~apple~CloudDocs/Documents/Projects/HTML/IBM/Resources/abogacia/abogacia_estadohome.png" alt="Home Page">
+
+        <!-- Clickable areas -->
+        <a href="abogacia1.html" class="clickable-box box1"></a>
+
+            <!-- Home button -->
+            <a href="index.html" class="home-button">
+                <img src="/Users/diegozuniga/Library/Mobile Documents/com~apple~CloudDocs/Documents/Projects/HTML/IBM/Resources/home_button.png" alt="Home">
+            </a>
+    </div>
+</body>
+</html>
