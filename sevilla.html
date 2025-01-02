@@ -49,26 +49,24 @@
         }
         /* Home button styling */
         .home-button {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        z-index: 1000;
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-        padding: 10px;
-        transition: transform 0.2s ease;
-    }
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            z-index: 1000;
+            background-color: transparent;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
 
     .home-button:hover {
         transform: scale(1.1);
     }
 
+    /* Remove these styles as they're no longer needed */
     .home-button img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+        display: none;
     }
     </style>
 </head>
@@ -81,9 +79,7 @@
         <a href="sevilla1.html" class="clickable-box box1"></a>
 
             <!-- Home button -->
-            <a href="index.html" class="home-button">
-                <img src="Resources/10_Shared/home_button.png" alt="Home">
-            </a>
+            <a href="index.html" class="home-button"></a>
     </div>
 </body>
 </html>
