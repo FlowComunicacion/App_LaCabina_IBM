@@ -71,30 +71,54 @@
             width: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             padding: 10px;
-            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #playPauseButton {
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            cursor: pointer;
+        }
+
+        #volumeSlider {
+            width: 100px;
         }
 
         #progressBar {
-            width: 100%;
+            flex-grow: 1;
             height: 5px;
             background-color: rgba(255, 255, 255, 0.3);
             cursor: pointer;
+            position: relative;
         }
 
         #progress {
             width: 0;
             height: 100%;
-            background-color: #fff;
+            background-color: white;
+            position: absolute;
         }
     </style>
 </head>
 <body>
     <div id="videoContainer">
-        <video id="mainVideo" autoplay controls>
+        <video id="mainVideo" autoplay>
             <source src="Resources/02_Abogacia/abogacia_del_estado.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <button id="replayButton">Replay Video</button>
+    </div>
+
+    <div id="customControls">
+        <button id="playPauseButton">Pause</button>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+        <div id="progressBar">
+            <div id="progress"></div>
+        </div>
     </div>
 
     <a href="index.html" class="home-button">
@@ -104,26 +128,53 @@
     <script>
         const video = document.getElementById('mainVideo');
         const replayButton = document.getElementById('replayButton');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const progressBar = document.getElementById('progressBar');
+        const progress = document.getElementById('progress');
 
         video.muted = false;
         video.volume = 1.0;
 
-        video.addEventListener('ended', function() {
-            replayButton.style.display = 'block';
+        // Play/Pause button functionality
+        playPauseButton.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                playPauseButton.textContent = 'Pause';
+            } else {
+                video.pause();
+                playPauseButton.textContent = 'Play';
+            }
         });
 
+        // Volume control
+        volumeSlider.addEventListener('input', function() {
+            video.volume = this.value;
+        });
+
+        // Progress bar
+        video.addEventListener('timeupdate', function() {
+            const percentage = (video.currentTime / video.duration) * 100;
+            progress.style.width = percentage + '%';
+        });
+
+        progressBar.addEventListener('click', function(e) {
+            const pos = (e.pageX - this.offsetLeft) / this.offsetWidth;
+            video.currentTime = pos * video.duration;
+        });
+
+        // Existing ended event
+        video.addEventListener('ended', function() {
+            replayButton.style.display = 'block';
+            playPauseButton.textContent = 'Play';
+        });
+
+        // Update existing replay button handler
         replayButton.addEventListener('click', function() {
             video.currentTime = 0;
             video.play();
             replayButton.style.display = 'none';
-        });
-
-        video.addEventListener('click', function() {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
+            playPauseButton.textContent = 'Pause';
         });
     </script>
 </body>
