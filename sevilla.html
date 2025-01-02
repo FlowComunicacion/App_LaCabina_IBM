@@ -50,24 +50,26 @@
         /* Home button styling */
         .home-button {
             position: fixed;
-            top: 7.4vh;     /* Converted from 80px (assuming 1080px height screen) */
-            right: 3.65vw;  /* Converted from 70px (assuming 1920px width screen) */
-            width: 8.33vw;  /* Converted from 160px (assuming 1920px width screen) */
-            height: 3.7vh;  /* Converted from 40px (assuming 1080px height screen) */
+            top: 2vh;      /* Small gap from top */
+            left: 2vw;     /* Small gap from left */
+            width: 3vw;    /* Reasonable size for an icon */
+            height: 3vw;   /* Keep it square */
             z-index: 1000;
-            border: 2px solid transparent;
-            transition: border-color 0.3s ease, background-color 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
         }
 
-    .home-button:hover {
-        border-color: #007bff;  /* Same blue border as other buttons */
-        background-color: rgba(0, 123, 255, 0.2);  /* Same semi-transparent blue as other buttons */
-    }
+        .home-button img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
 
-    /* Remove if present */
-    .home-button img {
-        display: none;
-    }
+        .home-button:hover {
+            transform: scale(1.1);  /* Slight grow effect on hover */
+        }
     </style>
 </head>
 <body>
@@ -79,7 +81,9 @@
         <a href="sevilla1.html" class="clickable-box box1"></a>
 
             <!-- Home button -->
-            <a href="index.html" class="home-button"></a>
+            <a href="index.html" class="home-button">
+                <img src="Resources/10_Shared/back-button-svgrepo-com.svg" alt="Home">
+            </a>
     </div>
 </body>
 </html>
