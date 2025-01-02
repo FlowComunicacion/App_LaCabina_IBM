@@ -52,19 +52,19 @@
             position: fixed;
             top: 10px;
             right: 10px;
-            width: 40px;
+            width: 80px;  /* Changed to rectangular shape */
             height: 40px;
             z-index: 1000;
-            background-color: blue;
-            border-radius: 50%;
-            transition: transform 0.2s ease;
+            border: 2px solid transparent;  /* Match other buttons */
+            transition: border-color 0.3s ease, background-color 0.3s ease;  /* Match other buttons' transition */
         }
 
     .home-button:hover {
-        transform: scale(1.1);
+        border-color: #007bff;  /* Same blue border as other buttons */
+        background-color: rgba(0, 123, 255, 0.2);  /* Same semi-transparent blue as other buttons */
     }
 
-    /* Remove these styles as they're no longer needed */
+    /* Remove if present */
     .home-button img {
         display: none;
     }
