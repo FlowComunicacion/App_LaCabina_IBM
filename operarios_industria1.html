@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player</title>
+    <title>Abogacía del Estado</title>
     <style>
         body {
             margin: 0;
@@ -71,34 +71,50 @@
             width: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             padding: 10px;
-            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #playPauseButton {
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            cursor: pointer;
+        }
+
+        #volumeSlider {
+            width: 100px;
         }
 
         #progressBar {
-            width: 100%;
+            flex-grow: 1;
             height: 5px;
             background-color: rgba(255, 255, 255, 0.3);
             cursor: pointer;
+            position: relative;
         }
 
         #progress {
             width: 0;
             height: 100%;
-            background-color: #fff;
+            background-color: white;
+            position: absolute;
         }
     </style>
 </head>
 <body>
     <div id="videoContainer">
         <video id="mainVideo" controls autoplay>
-            <source src="Resources/operarios_industria/operarios_industria.mp4" type="video/mp4">
+            <source src="Resources/06_OperariosIndustria/operario_industria-2.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <button id="replayButton">Replay Video</button>
     </div>
 
     <a href="index.html" class="home-button">
-        <img src="Resources/home_button.png" alt="Home">
+        <img src="Resources/10_Shared/home_button.png" alt="Home">
     </a>
 
     <script>
@@ -108,22 +124,16 @@
         video.muted = false;
         video.volume = 1.0;
 
+        // Existing ended event
         video.addEventListener('ended', function() {
             replayButton.style.display = 'block';
         });
 
+        // Update existing replay button handler
         replayButton.addEventListener('click', function() {
             video.currentTime = 0;
             video.play();
             replayButton.style.display = 'none';
-        });
-
-        video.addEventListener('click', function() {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
         });
     </script>
 </body>
