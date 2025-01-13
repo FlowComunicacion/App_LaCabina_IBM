@@ -55,6 +55,30 @@
             z-index: -1;
         }
     </style>
+        <script>
+        let timeoutId;
+
+        // Function to reset the timer
+        function resetTimer() {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                window.location.href = 'screensaver.html';
+            }, 60000); // 60000 ms = 1 minute
+        }
+
+        // Set up event listeners when the page loads
+        window.onload = function() {
+            // Reset timer on any user activity
+            document.addEventListener('mousemove', resetTimer);
+            document.addEventListener('mousedown', resetTimer);
+            document.addEventListener('keypress', resetTimer);
+            document.addEventListener('touchstart', resetTimer);
+            document.addEventListener('scroll', resetTimer);
+
+            // Start the initial timer
+            resetTimer();
+        };
+    </script>
 </head>
 <body>
     <!-- Add video background -->
