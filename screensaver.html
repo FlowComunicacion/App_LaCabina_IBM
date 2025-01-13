@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Ensure full page coverage */
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Video background styling */
+        .video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -2;
+        }
+
+        /* Image overlay styling */
+        .image-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            pointer-events: none;
+        }
+
+        /* Screensaver styling */
+        .screensaver {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 1s;
+            background-size: cover;
+            background-position: center;
+            display: none;
+        }
+
+        .screensaver.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="Resources/00_ScreenSaver/ScreenSaver.mp4" type="video/mp4">
+    </video>
+
+    <!-- PNG overlay -->
+    <div class="image-overlay" style="background-image: url('Resources/00_ScreenSaver/screensaver.png')"></div>
+
+    <!-- Screensaver -->
+    <div class="screensaver" style="background-image: url('Resources/00_ScreenSaver/screensaver.png')"></div>
+
+    <script>
+        let idleTimer;
+        const screensaver = document.querySelector('.screensaver');
+        const idleTime = 60000; // Screensaver appears after 60 seconds of inactivity
+
+        function resetIdleTimer() {
+            clearTimeout(idleTimer);
+            screensaver.classList.remove('active');
+            idleTimer = setTimeout(() => {
+                screensaver.classList.add('active');
+            }, idleTime);
+        }
+
+        // Add click handler for the entire document
+        document.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+
+        // Only track mouse movement and keys for screensaver
+        ['mousemove', 'keypress', 'touchstart'].forEach(event => {
+            document.addEventListener(event, resetIdleTimer);
+        });
+
+        // Initial timer start
+        resetIdleTimer();
+    </script>
+</body>
+</html>
 
