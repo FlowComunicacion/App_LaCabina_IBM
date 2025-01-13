@@ -17,6 +17,7 @@
             position: relative;
             display: inline-block;
             max-width: 100%;
+            z-index: 1;
         }
 
         .image-container img {
@@ -32,7 +33,6 @@
             border: 2px solid transparent;
             transition: border-color 0.3s ease, background-color 0.3s ease;
         }
-
         /* Adjust the positions and sizes of the boxes based on the image dimensions */
         .box1 { top: 23.5%; left: 5.5%; width: 44%; height: 12.55%; } /* Asistente gestión de demandas */
         .box2 { top: 23.5%; left: 50.40%; width: 44%; height: 12.55%; } /* Gobierno de la IA */
@@ -43,12 +43,28 @@
         .box7 { top: 66.55%; left: 5.5%; width: 44%; height: 12.55%; } /* Video Analytics */
         .box8 { top: 66.55%; left: 50.40%; width: 44%; height: 12.55%; } /* Plataforma SHARK.X */
 
+        /* Add new styles for video background */
+        .video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
+    <!-- Add video background -->
+    <video autoplay muted loop class="video-background">
+        <source src="Resources/00_ScreenSaver/ScreenSaver.mp4" type="video/mp4">
+    </video>
+
     <div class="image-container">
-        <!-- Display the full PNG image -->
-        <img src="Resources/01_Index/home.png" alt="Home Page">
+        <!-- Update image path to your transparent PNG -->
+        <img src="Resources/01_Index/home_sin_fondo.png" alt="Home Page">
 
         <!-- Clickable areas -->
         <a href="abogacia.html" class="clickable-box box1"></a>
