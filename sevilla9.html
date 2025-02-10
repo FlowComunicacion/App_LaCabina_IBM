@@ -36,7 +36,7 @@
 
         /* Adjust the positions and sizes of the boxes based on the image dimensions */
         .box1 { 
-            top: 0;
+            top: 15%;
             left: 0;
             width: 45%; /* Left half of screen */
             height: 100%; /* Full height */
@@ -73,6 +73,29 @@
         height: 100%;
         object-fit: contain;
     }
+
+    /* Back button styling */
+    .back-button {
+        position: fixed;
+        top: 2vh;      /* Small gap from top */
+        left: 2vw;     /* Small gap from left */
+        width: 3vw;    /* Reasonable size for an icon */
+        height: 3vw;   /* Keep it square */
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .back-button img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .back-button:hover {
+        transform: scale(1.1);  /* Slight grow effect on hover */
     </style>
 </head>
 <body>
@@ -87,6 +110,10 @@
         <!-- Home button -->
         <a href="index.html" class="home-button">
             <img src="Resources/10_Shared/home_button.png" alt="Home">
+        </a>
+        
+        <a href="fusionhci.html" class="back-button">
+            <img src="Resources/10_Shared/back-button-svgrepo-com.svg" alt="Home">
         </a>
     </div>
 </body>
