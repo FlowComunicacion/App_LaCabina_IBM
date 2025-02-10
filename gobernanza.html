@@ -15,14 +15,14 @@
         /* Container for the image */
         .image-container {
             position: relative;
-            width: 100vw; /* Full width of the viewport */
+            display: inline-block;
+            max-width: 100%; /* Full width of the viewport */
             height: 100vh; /* Full height of the viewport */
         }
 
         .image-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensure the image covers the whole screen */
             display: block;
         }
 
@@ -76,9 +76,11 @@
         <a href="gobernanza1.html" class="clickable-box box1"></a>
 
             <!-- Home button -->
-            <a href="index.html" class="home-button">
-                <img src="Resources/10_Shared/back-button-svgrepo-com.svg" alt="Home">
-            </a>
+        <a href="index.html" class="home-button">
+            <img src="Resources/10_Shared/back-button-svgrepo-com.svg" alt="Home">
+        </a>
+
+        <a href="index.html" class="clickable-box box2"></a>
     </div>
 </body>
 </html>
