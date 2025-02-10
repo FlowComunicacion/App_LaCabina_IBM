@@ -49,6 +49,58 @@
             width: 11%;
             height: 6%;
         }
+        /* QR code box styling */
+        .box3 {
+            bottom: 5%;    /* Position from bottom */
+            right: 1%;     /* Position from right */
+            width: 10%;    /* Width of the QR code container */
+            height: auto;  /* Maintain aspect ratio */
+            cursor: pointer;
+        }
+
+        .box3 img {
+            width: 50%;
+            height: 50%;
+            object-fit: contain;
+        }
+
+        /* Popup styling */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            position: relative;
+            max-width: 25%;
+            max-height: 25%;
+            height: 50%;
+        }
+
+        .popup-content img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .close-button {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
         /* Home button styling */
         .home-button {
             position: fixed;
@@ -88,6 +140,34 @@
         </a>
 
         <a href="index.html" class="clickable-box box2"></a>
+        <!-- QR Code box -->
+        <div class="clickable-box box3" onclick="openPopup()">
+            <img src="Resources/08_VideoAndMediaEnrichment/QR_VideoAnalytics.png" alt="QR Code">
+        </div>
     </div>
+     <!-- Popup -->
+    <div class="popup-overlay" id="qrPopup">
+        <div class="popup-content">
+            <button class="close-button" onclick="closePopup()">×</button>
+            <img src="Resources/08_VideoAndMediaEnrichment/QR_VideoAnalytics.png">
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('qrPopup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('qrPopup').style.display = 'none';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('qrPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+    </script>
 </body>
 </html>
