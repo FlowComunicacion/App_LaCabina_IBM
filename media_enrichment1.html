@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<style>
+    .home-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        padding: 10px;
+        transition: transform 0.2s ease;
+    }
+
+    .home-button:hover {
+        transform: scale(1.1);
+    }
+
+    .home-button img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Back button styling */
+    .back-button {
+        position: fixed;
+        top: 2vh;      /* Small gap from top */
+        left: 2vw;     /* Small gap from left */
+        width: 3vw;    /* Reasonable size for an icon */
+        height: 3vw;   /* Keep it square */
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .back-button img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .back-button:hover {
+        transform: scale(1.1);  /* Slight grow effect on hover */
+    }
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM Fusion HCI</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="https://telefonica-video-front-ns-telefonica-video.apps.ocp-cluster1.sharkx.com/catalog" title="IBM Fusion Demo"></iframe>
+    <!-- Home button -->
+    <a href="index.html" class="home-button">
+        <img src="Resources/10_Shared/home_button.png" alt="Home">
+    </a>
+
+    <a href="media_enritchmenthome.html" class="back-button">
+        <img src="Resources/10_Shared/back-button-svgrepo-com.svg" alt="Home">
+    </a>
+</body>
+</html>
+
